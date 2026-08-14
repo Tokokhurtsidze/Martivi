@@ -37,6 +37,7 @@ export function ScrollSlides() {
     function apply(matches: boolean) {
       document.documentElement.classList.toggle("snap-y", matches);
       document.documentElement.classList.toggle("snap-proximity", matches);
+      document.documentElement.classList.toggle("scrollbar-hide", matches);
     }
 
     function onChange(e: MediaQueryListEvent) {
@@ -44,7 +45,6 @@ export function ScrollSlides() {
     }
 
     apply(mql.matches);
-    document.documentElement.classList.add("scrollbar-hide");
     mql.addEventListener("change", onChange);
 
     return () => {
