@@ -13,9 +13,7 @@ export default async function ProjectPage({
 }) {
   const { slug } = await params;
   const projects = await getProjects();
-  const index = projects.findIndex((p) => p.slug === slug);
-  const project = index >= 0 ? projects[index] : undefined;
-  const next = index >= 0 ? projects[(index + 1) % projects.length] : undefined;
+  const project = projects.find((p) => p.slug === slug);
 
-  return <ProjectDetail project={project} next={next} />;
+  return <ProjectDetail project={project} />;
 }
