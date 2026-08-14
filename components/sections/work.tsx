@@ -33,14 +33,14 @@ export function Work() {
           </Link>
         </div>
 
-        <div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-6 lg:grid-cols-4">
+        <div className="mt-10 grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4">
           {featured.map((project, i) => (
             <ProjectCard
               key={project.slug}
               project={project}
               index={i}
               delay={i * 0.08}
-              className={i >= 2 ? "hidden lg:block" : undefined}
+              className={i === 0 ? undefined : i === 1 ? "hidden sm:block" : "hidden lg:block"}
             />
           ))}
         </div>
