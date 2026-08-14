@@ -6,10 +6,11 @@ import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ProjectCard } from "@/components/work/project-card";
 import { useLanguage } from "@/context/language-context";
+import type { Project } from "@/lib/content/types";
 
-export function Work() {
+export function Work({ projects }: { projects: Project[] }) {
   const { t } = useLanguage();
-  const featured = t.work.projects.slice(0, 4);
+  const featured = projects.slice(0, 4);
 
   return (
     <section

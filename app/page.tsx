@@ -6,8 +6,11 @@ import { About } from "@/components/sections/about";
 import { Partners } from "@/components/sections/partners";
 import { Contact } from "@/components/sections/contact";
 import { ScrollSlides } from "@/components/home/scroll-slides";
+import { getProjects } from "@/lib/content/store";
 
-export default function Home() {
+export default async function Home() {
+  const projects = await getProjects();
+
   return (
     <>
       <div className="snap-start">
@@ -20,7 +23,7 @@ export default function Home() {
         <DigitalServices />
       </div>
       <div className="snap-start">
-        <Work />
+        <Work projects={projects} />
       </div>
       <div className="snap-start">
         <About />

@@ -1,19 +1,5 @@
 export type ProjectCategory = "branding" | "social" | "web" | "motion";
 
-export interface ProjectEntry {
-  slug: string;
-  categories: ProjectCategory[];
-  title: string;
-  client: string;
-  year: string;
-  tagline: string;
-  summary: string;
-  challenge: string;
-  approach: string[];
-  results: string[];
-  services: string[];
-}
-
 export interface Dictionary {
   nav: {
     consulting: string;
@@ -77,7 +63,6 @@ export interface Dictionary {
     ctaSubtitle: string;
     ctaButton: string;
     categories: Record<ProjectCategory, string>;
-    projects: ProjectEntry[];
   };
   about: {
     eyebrow: string;

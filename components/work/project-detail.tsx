@@ -1,21 +1,26 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/motion/reveal";
 import { ProjectCover } from "@/components/work/project-cover";
-import { projectsMeta } from "@/lib/data/projects-meta";
+import { projectsMeta, palettes } from "@/lib/data/projects-meta";
 import { useLanguage } from "@/context/language-context";
+import type { Project } from "@/lib/content/types";
 
-export function ProjectDetail({ slug }: { slug: string }) {
-  const { t } = useLanguage();
-  const projects = t.work.projects;
-  const index = projects.findIndex((p) => p.slug === slug);
-  const project = index >= 0 ? projects[index] : undefined;
+export function ProjectDetail({
+  project,
+  next,
+}: {
+  project: Project | undefined;
+  next: Project | undefined;
+}) {
+  const { t, locale } = useLanguage();
 
-  if (!project) {
+  if (!project || !next) {
     return (
       <Container className="flex min-h-[60vh] flex-col items-center justify-center pt-32 text-center">
         <h1 className="font-display text-4xl font-medium tracking-tight">
@@ -33,9 +38,11 @@ export function ProjectDetail({ slug }: { slug: string }) {
     );
   }
 
-  const meta = projectsMeta[project.slug];
-  const next = projects[(index + 1) % projects.length];
-  const nextMeta = projectsMeta[next.slug];
+  const text = project[locale];
+  const nextText = next[locale];
+  const meta = projectsMeta[project.slug] ?? { palette: palettes.ink, coverKind: 0 as const };
+  const nextMeta = projectsMeta[next.slug] ?? { palette: palettes.ink, coverKind: 0 as const };
+  const galleryShots = project.gallery.slice(0, 3);
 
   return (
     <div className="pb-28 sm:pb-36">
@@ -54,23 +61,29 @@ export function ProjectDetail({ slug }: { slug: string }) {
             {project.categories.map((c) => t.work.categories[c]).join(" · ")}
           </span>
           <h1 className="max-w-3xl text-balance font-display text-4xl font-medium tracking-tight sm:text-5xl lg:text-6xl">
-            {project.title}
+            {text.title}
           </h1>
           <p className="max-w-2xl text-balance text-lg italic text-accent">
-            {project.tagline}
+            {text.tagline}
           </p>
         </div>
       </Container>
 
       <Reveal className="mt-10">
-        <ProjectCover
-          title={project.title}
-          index={index}
-          palette={meta.palette}
-          coverKind={meta.coverKind}
-          className="aspect-[16/8] w-full sm:aspect-[16/6]"
-          titleClassName="max-w-2xl text-3xl sm:text-4xl lg:text-5xl"
-        />
+        {project.cover ? (
+          <div className="relative aspect-[16/8] w-full sm:aspect-[16/6]">
+            <Image src={project.cover.url} alt={text.title} fill sizes="100vw" className="object-cover" />
+          </div>
+        ) : (
+          <ProjectCover
+            title={text.title}
+            index={0}
+            palette={meta.palette}
+            coverKind={meta.coverKind}
+            className="aspect-[16/8] w-full sm:aspect-[16/6]"
+            titleClassName="max-w-2xl text-3xl sm:text-4xl lg:text-5xl"
+          />
+        )}
       </Reveal>
 
       <Container className="mt-14">
@@ -102,7 +115,7 @@ export function ProjectDetail({ slug }: { slug: string }) {
                 {t.work.challengeLabel}
               </h2>
               <p className="mt-4 text-balance text-lg leading-relaxed text-muted-foreground">
-                {project.challenge}
+                {text.challenge}
               </p>
             </div>
           </Reveal>
@@ -112,7 +125,7 @@ export function ProjectDetail({ slug }: { slug: string }) {
                 {t.work.approachLabel}
               </h2>
               <ul className="mt-4 flex flex-col gap-3">
-                {project.approach.map((item) => (
+                {text.approach.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-foreground/85">
                     <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
                     {item}
@@ -129,7 +142,7 @@ export function ProjectDetail({ slug }: { slug: string }) {
               {t.work.resultsLabel}
             </h2>
             <ul className="mt-6 grid gap-x-8 gap-y-4 sm:grid-cols-3">
-              {project.results.map((item) => (
+              {text.results.map((item) => (
                 <li key={item} className="flex items-start gap-3 text-sm text-foreground/85">
                   <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                   {item}
@@ -148,14 +161,26 @@ export function ProjectDetail({ slug }: { slug: string }) {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
             >
-              <ProjectCover
-                title={project.client}
-                index={i}
-                palette={meta.palette}
-                coverKind={((i + meta.coverKind) % 4) as 0 | 1 | 2 | 3}
-                className="aspect-video"
-                titleClassName="text-lg sm:text-xl"
-              />
+              {galleryShots[i] ? (
+                <div className="relative aspect-video">
+                  <Image
+                    src={galleryShots[i].url}
+                    alt={`${text.title} ${i + 1}`}
+                    fill
+                    sizes="(min-width: 640px) 33vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+              ) : (
+                <ProjectCover
+                  title={project.client}
+                  index={i}
+                  palette={meta.palette}
+                  coverKind={((i + meta.coverKind) % 4) as 0 | 1 | 2 | 3}
+                  className="aspect-video"
+                  titleClassName="text-lg sm:text-xl"
+                />
+              )}
             </motion.div>
           ))}
         </div>
@@ -189,18 +214,24 @@ export function ProjectDetail({ slug }: { slug: string }) {
                 {t.work.nextProjectLabel}
               </p>
               <p className="mt-2 font-display text-xl font-medium italic tracking-tight sm:text-2xl">
-                {next.title}
+                {nextText.title}
               </p>
             </div>
             <div className="hidden h-20 w-28 shrink-0 overflow-hidden sm:block">
-              <ProjectCover
-                title={next.title}
-                index={0}
-                palette={nextMeta.palette}
-                coverKind={nextMeta.coverKind}
-                className="h-full w-full transition-transform duration-500 group-hover:scale-105"
-                titleClassName="text-xs"
-              />
+              {next.cover ? (
+                <div className="relative h-full w-full transition-transform duration-500 group-hover:scale-105">
+                  <Image src={next.cover.url} alt={nextText.title} fill sizes="112px" className="object-cover" />
+                </div>
+              ) : (
+                <ProjectCover
+                  title={nextText.title}
+                  index={0}
+                  palette={nextMeta.palette}
+                  coverKind={nextMeta.coverKind}
+                  className="h-full w-full transition-transform duration-500 group-hover:scale-105"
+                  titleClassName="text-xs"
+                />
+              )}
             </div>
             <ArrowRight className="h-5 w-5 shrink-0 text-muted-foreground transition-all group-hover:translate-x-1 group-hover:text-accent" />
           </div>
