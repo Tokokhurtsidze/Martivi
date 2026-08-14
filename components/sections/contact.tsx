@@ -97,66 +97,66 @@ export function Contact() {
           <Reveal delay={0.12}>
             <form
               onSubmit={handleSubmit}
-              className="relative flex flex-col gap-2 border border-border bg-card p-3 sm:gap-4 sm:p-6 lg:gap-5 lg:p-7"
+              className="relative flex flex-col gap-5 border border-border bg-card p-4 sm:gap-4 sm:p-6 lg:gap-5 lg:p-7"
             >
-                <div className="grid grid-cols-2 gap-2 sm:gap-4 lg:grid-cols-3 lg:gap-5">
-                  <label className="flex flex-col gap-0.5 text-[11px] font-medium sm:gap-1 sm:text-sm">
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 lg:gap-5">
+                  <label className="flex flex-col gap-1.5 text-xs font-medium sm:gap-1 sm:text-sm">
                     {t.contact.form.name}
                     <input
                       required
                       name="name"
                       type="text"
                       placeholder={t.contact.form.namePlaceholder}
-                      className="h-8 border-b border-border bg-transparent px-1 text-xs font-normal outline-none transition-colors focus:border-accent sm:h-10 sm:text-sm"
+                      className="h-11 border-b border-border bg-transparent px-1 text-sm font-normal outline-none transition-colors focus:border-accent sm:h-10"
                     />
                   </label>
-                  <label className="flex flex-col gap-0.5 text-[11px] font-medium sm:gap-1 sm:text-sm">
+                  <label className="flex flex-col gap-1.5 text-xs font-medium sm:gap-1 sm:text-sm">
                     {t.contact.form.company}
                     <input
                       required
                       name="company"
                       type="text"
                       placeholder={t.contact.form.companyPlaceholder}
-                      className="h-8 border-b border-border bg-transparent px-1 text-xs font-normal outline-none transition-colors focus:border-accent sm:h-10 sm:text-sm"
+                      className="h-11 border-b border-border bg-transparent px-1 text-sm font-normal outline-none transition-colors focus:border-accent sm:h-10"
                     />
                   </label>
-                  <label className="col-span-2 flex flex-col gap-0.5 text-[11px] font-medium sm:gap-1 sm:text-sm lg:col-span-1">
+                  <label className="flex flex-col gap-1.5 text-xs font-medium sm:col-span-2 sm:gap-1 sm:text-sm lg:col-span-1">
                     {t.contact.form.email}
                     <input
                       required
                       name="email"
                       type="email"
                       placeholder={t.contact.form.emailPlaceholder}
-                      className="h-8 border-b border-border bg-transparent px-1 text-xs font-normal outline-none transition-colors focus:border-accent sm:h-10 sm:text-sm"
+                      className="h-11 border-b border-border bg-transparent px-1 text-sm font-normal outline-none transition-colors focus:border-accent sm:h-10"
                     />
                   </label>
                 </div>
 
-                <div className="grid grid-cols-2 gap-2 sm:gap-4 lg:grid-cols-3 lg:gap-5">
-                  <label className="flex flex-col gap-0.5 text-[11px] font-medium sm:gap-1 sm:text-sm">
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 lg:gap-5">
+                  <label className="flex flex-col gap-1.5 text-xs font-medium sm:gap-1 sm:text-sm">
                     {t.contact.form.phone}
                     <input
                       name="phone"
                       type="tel"
                       placeholder={t.contact.form.phonePlaceholder}
-                      className="h-8 border-b border-border bg-transparent px-1 text-xs font-normal outline-none transition-colors focus:border-accent sm:h-10 sm:text-sm"
+                      className="h-11 border-b border-border bg-transparent px-1 text-sm font-normal outline-none transition-colors focus:border-accent sm:h-10"
                     />
                   </label>
-                  <label className="flex flex-col gap-0.5 text-[11px] font-medium sm:gap-1 sm:text-sm">
+                  <label className="flex flex-col gap-1.5 text-xs font-medium sm:gap-1 sm:text-sm">
                     {t.contact.form.subject}
                     <input
                       name="subject"
                       type="text"
                       placeholder={t.contact.form.subjectPlaceholder}
-                      className="h-8 border-b border-border bg-transparent px-1 text-xs font-normal outline-none transition-colors focus:border-accent sm:h-10 sm:text-sm"
+                      className="h-11 border-b border-border bg-transparent px-1 text-sm font-normal outline-none transition-colors focus:border-accent sm:h-10"
                     />
                   </label>
-                  <label className="col-span-2 flex flex-col gap-0.5 text-[11px] font-medium sm:gap-1 sm:text-sm lg:col-span-1">
+                  <label className="flex flex-col gap-1.5 text-xs font-medium sm:col-span-2 sm:gap-1 sm:text-sm lg:col-span-1">
                     {t.contact.form.budget}
                     <select
                       name="budget"
                       defaultValue={t.contact.form.budgetOptions[0]}
-                      className="h-8 border-b border-border bg-transparent px-1 text-xs font-normal text-foreground outline-none transition-colors focus:border-accent sm:h-10 sm:text-sm"
+                      className="h-11 border-b border-border bg-transparent px-1 text-sm font-normal text-foreground outline-none transition-colors focus:border-accent sm:h-10"
                     >
                       {t.contact.form.budgetOptions.map((option) => (
                         <option key={option} value={option} className="bg-card text-foreground">
@@ -167,21 +167,21 @@ export function Contact() {
                   </label>
                 </div>
 
-                <label className="flex flex-col gap-0.5 text-[11px] font-medium sm:gap-1 sm:text-sm">
+                <label className="flex flex-col gap-1.5 text-xs font-medium sm:gap-1 sm:text-sm">
                   {t.contact.form.details}
                   <textarea
                     required
                     name="details"
-                    rows={2}
+                    rows={3}
                     placeholder={t.contact.form.detailsPlaceholder}
-                    className="resize-none border-b border-border bg-transparent px-1 py-1.5 text-xs font-normal outline-none transition-colors focus:border-accent sm:py-2 sm:text-sm"
+                    className="resize-none border-b border-border bg-transparent px-1 py-2 text-sm font-normal outline-none transition-colors focus:border-accent"
                   />
                 </label>
 
                 <button
                   type="submit"
                   disabled={status === "sending"}
-                  className="group inline-flex h-9 w-fit items-center gap-2 bg-accent px-5 text-sm font-semibold text-accent-foreground transition-transform hover:scale-[1.02] disabled:opacity-60 sm:h-11 sm:px-6"
+                  className="group inline-flex h-11 w-full items-center justify-center gap-2 bg-accent px-5 text-sm font-semibold text-accent-foreground transition-transform hover:scale-[1.02] disabled:opacity-60 sm:h-11 sm:w-fit sm:justify-start sm:px-6"
                 >
                   {status === "sending" ? t.contact.form.sending : t.contact.form.send}
                   <Send className="h-4 w-4 transition-transform group-hover:translate-x-1" />
