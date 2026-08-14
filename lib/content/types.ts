@@ -2,8 +2,6 @@ import type { ProjectCategory } from "@/lib/i18n/types";
 
 export interface ProjectImage {
   url: string;
-  width: number;
-  height: number;
 }
 
 export interface LocalizedProjectText {
