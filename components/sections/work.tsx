@@ -14,7 +14,7 @@ export function Work() {
   return (
     <section
       id="work"
-      className="relative flex min-h-[100svh] flex-col justify-center py-24 sm:py-28"
+      className="relative flex flex-col justify-center py-24 sm:py-28 lg:min-h-[100svh]"
     >
       <Container>
         <div className="flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-end">

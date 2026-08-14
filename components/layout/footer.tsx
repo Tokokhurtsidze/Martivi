@@ -33,7 +33,7 @@ export function Footer() {
       id={isHome ? "footer" : undefined}
       className={cn(
         "border-t border-border bg-ink text-ink-foreground",
-        isHome && "flex min-h-[100svh] flex-col justify-center snap-start scroll-mt-28 sm:scroll-mt-32",
+        isHome && "flex flex-col justify-center snap-start scroll-mt-28 sm:scroll-mt-32 lg:min-h-[100svh]",
       )}
     >
       <Container className="grid gap-10 py-14 lg:grid-cols-[1.3fr_1fr_1fr] lg:gap-8 lg:py-20">

@@ -20,7 +20,7 @@ export function About() {
   return (
     <section
       id="about"
-      className="relative flex min-h-[100svh] flex-col justify-center py-14 sm:py-24"
+      className="relative flex flex-col justify-center py-14 sm:py-24 lg:min-h-[100svh]"
     >
       <Container className="grid items-center gap-4 sm:grid-cols-[0.7fr_1fr] sm:gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-10">
         <Reveal>

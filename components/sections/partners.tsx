@@ -15,7 +15,7 @@ export function Partners() {
   return (
     <section
       id="partners"
-      className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden py-24 sm:py-28"
+      className="relative flex flex-col justify-center overflow-hidden py-24 sm:py-28 lg:min-h-[100svh]"
     >
       <Container>
         <SectionHeading

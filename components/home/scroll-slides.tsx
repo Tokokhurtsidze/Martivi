@@ -32,9 +32,24 @@ export function ScrollSlides() {
   }, [active]);
 
   useEffect(() => {
-    document.documentElement.classList.add("snap-y", "snap-proximity", "scrollbar-hide");
+    const mql = window.matchMedia("(min-width: 1024px)");
+
+    function apply(matches: boolean) {
+      document.documentElement.classList.toggle("snap-y", matches);
+      document.documentElement.classList.toggle("snap-proximity", matches);
+    }
+
+    function onChange(e: MediaQueryListEvent) {
+      apply(e.matches);
+    }
+
+    apply(mql.matches);
+    document.documentElement.classList.add("scrollbar-hide");
+    mql.addEventListener("change", onChange);
+
     return () => {
       document.documentElement.classList.remove("snap-y", "snap-proximity", "scrollbar-hide");
+      mql.removeEventListener("change", onChange);
     };
   }, []);
 

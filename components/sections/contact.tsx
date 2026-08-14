@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { AlertCircle, Mail, MapPin, Phone, Send, CheckCircle2 } from "lucide-react";
 import { Container } from "@/components/ui/container";
@@ -12,39 +12,6 @@ import { cn } from "@/lib/utils";
 export function Contact() {
   const { t } = useLanguage();
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
-  const [active, setActive] = useState(0);
-  const trackRef = useRef<HTMLDivElement>(null);
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const pageCount = 2;
-
-  useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) {
-          const index = cardRefs.current.indexOf(visible.target as HTMLDivElement);
-          if (index !== -1) setActive(index);
-        }
-      },
-      { root: track, threshold: [0.6] },
-    );
-
-    cardRefs.current.forEach((card) => card && observer.observe(card));
-    return () => observer.disconnect();
-  }, []);
-
-  function goToCard(index: number) {
-    cardRefs.current[index]?.scrollIntoView({
-      behavior: "smooth",
-      inline: "center",
-      block: "nearest",
-    });
-  }
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -80,99 +47,58 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="relative flex min-h-[100svh] flex-col justify-center pb-6 pt-28 sm:pb-14 sm:pt-32"
+      className="relative flex flex-col justify-center pb-6 pt-28 sm:pb-14 sm:pt-32 lg:min-h-[100svh]"
     >
       <Container>
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-          <SectionHeading
-            index="06"
-            eyebrow={t.contact.eyebrow}
-            title={t.contact.title}
-            subtitle={t.contact.subtitle}
-            compactMobile
-          />
+        <SectionHeading
+          index="06"
+          eyebrow={t.contact.eyebrow}
+          title={t.contact.title}
+          subtitle={t.contact.subtitle}
+          compactMobile
+        />
 
-          <div className="flex shrink-0 items-center gap-2 lg:hidden">
-            {Array.from({ length: pageCount }).map((_, index) => (
-              <button
-                key={index}
-                type="button"
-                aria-label={`Page ${index + 1}`}
-                aria-current={active === index}
-                onClick={() => goToCard(index)}
-                className={cn(
-                  "flex h-8 w-8 items-center justify-center border font-display text-xs italic transition-colors",
-                  active === index
-                    ? "border-accent text-accent"
-                    : "border-border text-muted-foreground",
-                )}
-              >
-                0{index + 1}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div
-          ref={trackRef}
-          className="scrollbar-hide -mx-6 mt-3 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 sm:mt-6 lg:mx-0 lg:grid lg:grid-cols-[1fr_1.3fr] lg:gap-10 lg:overflow-visible lg:px-0 lg:pb-0"
-        >
-          <div
-            ref={(el) => {
-              cardRefs.current[0] = el;
-            }}
-            className="flex w-full shrink-0 snap-start justify-center lg:contents"
-          >
-            <Reveal className="w-full sm:max-w-md lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:w-auto lg:max-w-none">
-              <div className="flex flex-col divide-y divide-border border border-border sm:border-y sm:border-x-0 lg:border-0 lg:divide-border">
-                {t.contact.offices.map((office) => (
-                  <div
-                    key={office.city}
-                    className="flex flex-col items-center p-4 text-center sm:items-start sm:p-0 sm:text-left sm:py-6 sm:first:pt-0 sm:last:pb-0"
-                  >
-                    <h3 className="font-display text-lg font-medium italic sm:text-2xl">
-                      {office.city}
-                    </h3>
-                    <div className="mt-3 flex flex-col items-center gap-2 text-xs text-muted-foreground sm:mt-4 sm:items-start sm:gap-2.5 sm:text-sm">
-                      <div className="flex items-start gap-3">
-                        <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                        {office.address}
-                      </div>
-                      <a
-                        href={`mailto:${office.email}`}
-                        className="flex items-start gap-3 transition-colors hover:text-foreground"
-                      >
-                        <Mail className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                        {office.email}
-                      </a>
-                      <a
-                        href={`tel:${office.phone.replace(/\s+/g, "")}`}
-                        className="flex items-start gap-3 transition-colors hover:text-foreground"
-                      >
-                        <Phone className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                        {office.phone}
-                      </a>
+        <div className="mt-3 flex flex-col gap-8 sm:mt-6 lg:grid lg:grid-cols-[1fr_1.3fr] lg:gap-10">
+          <Reveal>
+            <div className="flex flex-col divide-y divide-border border border-border sm:border-y sm:border-x-0 lg:border-0 lg:divide-border">
+              {t.contact.offices.map((office) => (
+                <div
+                  key={office.city}
+                  className="flex flex-col items-center p-4 text-center sm:items-start sm:p-0 sm:text-left sm:py-6 sm:first:pt-0 sm:last:pb-0"
+                >
+                  <h3 className="font-display text-lg font-medium italic sm:text-2xl">
+                    {office.city}
+                  </h3>
+                  <div className="mt-3 flex flex-col items-center gap-2 text-xs text-muted-foreground sm:mt-4 sm:items-start sm:gap-2.5 sm:text-sm">
+                    <div className="flex items-start gap-3">
+                      <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                      {office.address}
                     </div>
+                    <a
+                      href={`mailto:${office.email}`}
+                      className="flex items-start gap-3 transition-colors hover:text-foreground"
+                    >
+                      <Mail className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                      {office.email}
+                    </a>
+                    <a
+                      href={`tel:${office.phone.replace(/\s+/g, "")}`}
+                      className="flex items-start gap-3 transition-colors hover:text-foreground"
+                    >
+                      <Phone className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                      {office.phone}
+                    </a>
                   </div>
-                ))}
-              </div>
-            </Reveal>
-          </div>
+                </div>
+              ))}
+            </div>
+          </Reveal>
 
-          <div
-            ref={(el) => {
-              cardRefs.current[1] = el;
-            }}
-            className="flex w-full shrink-0 snap-start justify-center lg:contents"
-          >
-            <Reveal
-              delay={0.12}
-              className="w-full sm:max-w-md lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:w-auto lg:max-w-none"
+          <Reveal delay={0.12}>
+            <form
+              onSubmit={handleSubmit}
+              className="relative flex flex-col gap-2 border border-border bg-card p-3 sm:gap-4 sm:p-6 lg:gap-5 lg:p-7"
             >
-              <form
-                onSubmit={handleSubmit}
-                className="relative flex flex-col gap-2 border border-border bg-card p-3 sm:gap-4 sm:p-6 lg:gap-5 lg:p-7"
-              >
                 <div className="grid grid-cols-2 gap-2 sm:gap-4 lg:grid-cols-3 lg:gap-5">
                   <label className="flex flex-col gap-0.5 text-[11px] font-medium sm:gap-1 sm:text-sm">
                     {t.contact.form.name}
@@ -194,7 +120,7 @@ export function Contact() {
                       className="h-8 border-b border-border bg-transparent px-1 text-xs font-normal outline-none transition-colors focus:border-accent sm:h-10 sm:text-sm"
                     />
                   </label>
-                  <label className="col-span-2 flex flex-col gap-0.5 text-[11px] font-medium sm:col-span-1 sm:gap-1 sm:text-sm">
+                  <label className="col-span-2 flex flex-col gap-0.5 text-[11px] font-medium sm:gap-1 sm:text-sm lg:col-span-1">
                     {t.contact.form.email}
                     <input
                       required
@@ -206,31 +132,31 @@ export function Contact() {
                   </label>
                 </div>
 
-                <div className="hidden gap-2 sm:grid sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 lg:gap-5">
-                  <label className="flex flex-col gap-1 text-sm font-medium">
+                <div className="grid grid-cols-2 gap-2 sm:gap-4 lg:grid-cols-3 lg:gap-5">
+                  <label className="flex flex-col gap-0.5 text-[11px] font-medium sm:gap-1 sm:text-sm">
                     {t.contact.form.phone}
                     <input
                       name="phone"
                       type="tel"
                       placeholder={t.contact.form.phonePlaceholder}
-                      className="h-10 border-b border-border bg-transparent px-1 text-sm font-normal outline-none transition-colors focus:border-accent"
+                      className="h-8 border-b border-border bg-transparent px-1 text-xs font-normal outline-none transition-colors focus:border-accent sm:h-10 sm:text-sm"
                     />
                   </label>
-                  <label className="flex flex-col gap-1 text-sm font-medium">
+                  <label className="flex flex-col gap-0.5 text-[11px] font-medium sm:gap-1 sm:text-sm">
                     {t.contact.form.subject}
                     <input
                       name="subject"
                       type="text"
                       placeholder={t.contact.form.subjectPlaceholder}
-                      className="h-10 border-b border-border bg-transparent px-1 text-sm font-normal outline-none transition-colors focus:border-accent"
+                      className="h-8 border-b border-border bg-transparent px-1 text-xs font-normal outline-none transition-colors focus:border-accent sm:h-10 sm:text-sm"
                     />
                   </label>
-                  <label className="col-span-2 flex flex-col gap-1 text-sm font-medium lg:col-span-1">
+                  <label className="col-span-2 flex flex-col gap-0.5 text-[11px] font-medium sm:gap-1 sm:text-sm lg:col-span-1">
                     {t.contact.form.budget}
                     <select
                       name="budget"
                       defaultValue={t.contact.form.budgetOptions[0]}
-                      className="h-10 border-b border-border bg-transparent px-1 text-sm font-normal text-foreground outline-none transition-colors focus:border-accent"
+                      className="h-8 border-b border-border bg-transparent px-1 text-xs font-normal text-foreground outline-none transition-colors focus:border-accent sm:h-10 sm:text-sm"
                     >
                       {t.contact.form.budgetOptions.map((option) => (
                         <option key={option} value={option} className="bg-card text-foreground">
@@ -261,8 +187,7 @@ export function Contact() {
                   <Send className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </button>
               </form>
-            </Reveal>
-          </div>
+          </Reveal>
         </div>
       </Container>
 

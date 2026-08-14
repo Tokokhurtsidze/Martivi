@@ -1,16 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import {
-  ArrowUpRight,
-  ChevronLeft,
-  ChevronRight,
-  Clapperboard,
-  Code2,
-  Palette,
-  Share2,
-} from "lucide-react";
+import { ArrowUpRight, Clapperboard, Code2, Palette, Share2 } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { useLanguage } from "@/context/language-context";
@@ -27,42 +18,11 @@ const spans = [
 
 export function DigitalServices() {
   const { t } = useLanguage();
-  const [atEnd, setAtEnd] = useState(false);
-  const trackRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
-
-    function onScroll() {
-      if (!track) return;
-      const max = track.scrollWidth - track.clientWidth;
-      setAtEnd(max <= 1 || track.scrollLeft >= max - 8);
-    }
-
-    onScroll();
-    track.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      track.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
-  }, []);
-
-  function goToStart() {
-    trackRef.current?.scrollTo({ left: 0, behavior: "smooth" });
-  }
-
-  function goToEnd() {
-    const track = trackRef.current;
-    if (!track) return;
-    track.scrollTo({ left: track.scrollWidth, behavior: "smooth" });
-  }
 
   return (
     <section
       id="digital"
-      className="bg-grain relative flex min-h-[100svh] flex-col justify-center overflow-hidden bg-ink py-20 text-ink-foreground sm:py-24"
+      className="bg-grain relative flex flex-col justify-center overflow-hidden bg-ink py-20 text-ink-foreground sm:py-24 lg:min-h-[100svh]"
     >
       <div className="pointer-events-none absolute inset-0 bg-grid opacity-[0.05] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_50%,black,transparent)]" />
       <div className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-primary/10 blur-[120px]" />
@@ -76,10 +36,7 @@ export function DigitalServices() {
           invert
         />
 
-        <div
-          ref={trackRef}
-          className="scrollbar-hide -mx-6 mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 lg:mx-0 lg:grid lg:grid-cols-4 lg:gap-4 lg:overflow-visible lg:px-0 lg:pb-0 lg:grid-rows-2"
-        >
+        <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4 lg:grid-rows-2">
           {t.digital.services.map((service, index) => {
             const Icon = icons[index % icons.length];
             const isFeature = index === 0;
@@ -92,7 +49,7 @@ export function DigitalServices() {
                 transition={{ duration: 0.6, delay: index * 0.08 }}
                 whileHover={{ y: -4 }}
                 className={cn(
-                  "group relative flex w-[calc(50%-0.5rem)] shrink-0 snap-start flex-col justify-between overflow-hidden border border-ink-foreground/10 bg-ink-foreground/[0.03] p-4 transition-colors hover:border-accent/50 sm:p-6 lg:w-auto lg:min-h-[10rem] lg:shrink",
+                  "group relative flex flex-col justify-between overflow-hidden border border-ink-foreground/10 bg-ink-foreground/[0.03] p-3 transition-colors hover:border-accent/50 sm:p-6 lg:min-h-[10rem]",
                   spans[index],
                 )}
               >
@@ -128,40 +85,6 @@ export function DigitalServices() {
               </motion.div>
             );
           })}
-        </div>
-
-        <div className="mt-4 flex items-center justify-center gap-4 lg:hidden">
-          <button
-            type="button"
-            aria-label="Previous"
-            disabled={!atEnd}
-            onClick={goToStart}
-            className={cn(
-              "flex h-9 w-9 items-center justify-center border transition-colors",
-              !atEnd
-                ? "border-ink-foreground/10 text-ink-foreground/30"
-                : "border-ink-foreground/20 text-ink-foreground hover:border-accent hover:text-accent",
-            )}
-          >
-            <ChevronLeft className="h-4 w-4" />
-          </button>
-          <span className="font-display text-sm italic text-ink-foreground/50">
-            {atEnd ? "02" : "01"} / 02
-          </span>
-          <button
-            type="button"
-            aria-label="Next"
-            disabled={atEnd}
-            onClick={goToEnd}
-            className={cn(
-              "flex h-9 w-9 items-center justify-center border transition-colors",
-              atEnd
-                ? "border-ink-foreground/10 text-ink-foreground/30"
-                : "border-ink-foreground/20 text-ink-foreground hover:border-accent hover:text-accent",
-            )}
-          >
-            <ChevronRight className="h-4 w-4" />
-          </button>
         </div>
       </Container>
     </section>
