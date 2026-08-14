@@ -51,33 +51,35 @@ export function ProjectDetail({ project }: { project: Project | undefined }) {
         </h1>
       </Container>
 
-      <div className="mt-10 flex flex-col gap-6 sm:gap-10">
-        {images.length > 0 ? (
-          images.map((img, i) => (
-            <div key={img.url} className="relative aspect-[16/9] w-full">
-              <Image
-                src={img.url}
-                alt={text.title}
-                fill
-                priority={i === 0}
-                sizes="100vw"
-                className="object-cover"
+      <Container className="mt-10">
+        <div className="mx-auto flex max-w-2xl flex-col gap-6">
+          {images.length > 0 ? (
+            images.map((img, i) => (
+              <div key={img.url} className="relative aspect-[4/3] w-full overflow-hidden">
+                <Image
+                  src={img.url}
+                  alt={text.title}
+                  fill
+                  priority={i === 0}
+                  sizes="(min-width: 640px) 672px, 100vw"
+                  className="object-cover"
+                />
+              </div>
+            ))
+          ) : (
+            <Reveal>
+              <ProjectCover
+                title={text.title}
+                index={0}
+                palette={meta.palette}
+                coverKind={meta.coverKind}
+                className="aspect-[4/3] w-full"
+                titleClassName="max-w-2xl text-3xl sm:text-4xl lg:text-5xl"
               />
-            </div>
-          ))
-        ) : (
-          <Reveal>
-            <ProjectCover
-              title={text.title}
-              index={0}
-              palette={meta.palette}
-              coverKind={meta.coverKind}
-              className="aspect-[16/8] w-full sm:aspect-[16/6]"
-              titleClassName="max-w-2xl text-3xl sm:text-4xl lg:text-5xl"
-            />
-          </Reveal>
-        )}
-      </div>
+            </Reveal>
+          )}
+        </div>
+      </Container>
     </div>
   );
 }
