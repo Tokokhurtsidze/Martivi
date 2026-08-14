@@ -2,9 +2,9 @@ import type { Project } from "./types";
 
 /**
  * Phase 1 static seed, migrated from the old per-locale `work.projects`
- * arrays. No real cover/gallery images yet — pages fall back to the
- * generated palette cover (`lib/data/projects-meta.ts`) until Phase 2
- * (admin uploads) replaces them.
+ * arrays. Cover/gallery point at static placeholder art in
+ * public/images/projects (generated, not real photography) — replace
+ * these with real uploads through /admin once Blob storage is set up.
  */
 export const projects: Project[] = [
   {
@@ -13,8 +13,12 @@ export const projects: Project[] = [
     client: "Sun Motors Georgia",
     year: "2023",
     services: ["Social Media", "Graphic Design"],
-    cover: null,
-    gallery: [],
+    cover: { url: "/images/projects/sun-motors-social-media/cover.svg" },
+    gallery: [
+      { url: "/images/projects/sun-motors-social-media/gallery-1.svg" },
+      { url: "/images/projects/sun-motors-social-media/gallery-2.svg" },
+      { url: "/images/projects/sun-motors-social-media/gallery-3.svg" },
+    ],
     updatedAt: "2026-08-15T00:00:00.000Z",
     en: {
       title: "Sun Motors Georgia — Social Media",
@@ -59,8 +63,12 @@ export const projects: Project[] = [
     client: "Sun Motors Georgia",
     year: "2023",
     services: ["Branding", "Graphic Design"],
-    cover: null,
-    gallery: [],
+    cover: { url: "/images/projects/sun-motors-branding/cover.svg" },
+    gallery: [
+      { url: "/images/projects/sun-motors-branding/gallery-1.svg" },
+      { url: "/images/projects/sun-motors-branding/gallery-2.svg" },
+      { url: "/images/projects/sun-motors-branding/gallery-3.svg" },
+    ],
     updatedAt: "2026-08-15T00:00:00.000Z",
     en: {
       title: "Sun Motors Georgia — Branding",
@@ -105,8 +113,12 @@ export const projects: Project[] = [
     client: "Alcorium",
     year: "2023",
     services: ["Social Media", "Paid Media"],
-    cover: null,
-    gallery: [],
+    cover: { url: "/images/projects/alcorium-social-ads/cover.svg" },
+    gallery: [
+      { url: "/images/projects/alcorium-social-ads/gallery-1.svg" },
+      { url: "/images/projects/alcorium-social-ads/gallery-2.svg" },
+      { url: "/images/projects/alcorium-social-ads/gallery-3.svg" },
+    ],
     updatedAt: "2026-08-15T00:00:00.000Z",
     en: {
       title: "Alcorium — Social Media & Ads",
@@ -151,8 +163,12 @@ export const projects: Project[] = [
     client: "Alcorium",
     year: "2024",
     services: ["Graphic Design", "Branding"],
-    cover: null,
-    gallery: [],
+    cover: { url: "/images/projects/alcorium-posters/cover.svg" },
+    gallery: [
+      { url: "/images/projects/alcorium-posters/gallery-1.svg" },
+      { url: "/images/projects/alcorium-posters/gallery-2.svg" },
+      { url: "/images/projects/alcorium-posters/gallery-3.svg" },
+    ],
     updatedAt: "2026-08-15T00:00:00.000Z",
     en: {
       title: "Alcorium — In-Store Posters",
@@ -197,8 +213,12 @@ export const projects: Project[] = [
     client: "Erty",
     year: "2023",
     services: ["Branding", "Graphic Design"],
-    cover: null,
-    gallery: [],
+    cover: { url: "/images/projects/erty-branding/cover.svg" },
+    gallery: [
+      { url: "/images/projects/erty-branding/gallery-1.svg" },
+      { url: "/images/projects/erty-branding/gallery-2.svg" },
+      { url: "/images/projects/erty-branding/gallery-3.svg" },
+    ],
     updatedAt: "2026-08-15T00:00:00.000Z",
     en: {
       title: "Erty — Brand Identity",
@@ -243,8 +263,12 @@ export const projects: Project[] = [
     client: "Martivi Digital",
     year: "2024",
     services: ["Web Development", "Branding"],
-    cover: null,
-    gallery: [],
+    cover: { url: "/images/projects/martivi-digital-website/cover.svg" },
+    gallery: [
+      { url: "/images/projects/martivi-digital-website/gallery-1.svg" },
+      { url: "/images/projects/martivi-digital-website/gallery-2.svg" },
+      { url: "/images/projects/martivi-digital-website/gallery-3.svg" },
+    ],
     updatedAt: "2026-08-15T00:00:00.000Z",
     en: {
       title: "Martivi Digital — Website",
@@ -289,8 +313,12 @@ export const projects: Project[] = [
     client: "Civic Campaign",
     year: "2023",
     services: ["Motion Graphics", "Social Media"],
-    cover: null,
-    gallery: [],
+    cover: { url: "/images/projects/georgia-is-europe/cover.svg" },
+    gallery: [
+      { url: "/images/projects/georgia-is-europe/gallery-1.svg" },
+      { url: "/images/projects/georgia-is-europe/gallery-2.svg" },
+      { url: "/images/projects/georgia-is-europe/gallery-3.svg" },
+    ],
     updatedAt: "2026-08-15T00:00:00.000Z",
     en: {
       title: "Georgia is Europe — Campaign",
@@ -335,8 +363,12 @@ export const projects: Project[] = [
     client: "Whisky House",
     year: "2024",
     services: ["Social Media", "Graphic Design"],
-    cover: null,
-    gallery: [],
+    cover: { url: "/images/projects/whisky-house-of-the-month/cover.svg" },
+    gallery: [
+      { url: "/images/projects/whisky-house-of-the-month/gallery-1.svg" },
+      { url: "/images/projects/whisky-house-of-the-month/gallery-2.svg" },
+      { url: "/images/projects/whisky-house-of-the-month/gallery-3.svg" },
+    ],
     updatedAt: "2026-08-15T00:00:00.000Z",
     en: {
       title: "Whisky House — Whisky of the Month",
@@ -381,8 +413,12 @@ export const projects: Project[] = [
     client: "Autodesk (Regional Reseller)",
     year: "2024",
     services: ["Social Media", "Graphic Design"],
-    cover: null,
-    gallery: [],
+    cover: { url: "/images/projects/autodesk-reseller-social/cover.svg" },
+    gallery: [
+      { url: "/images/projects/autodesk-reseller-social/gallery-1.svg" },
+      { url: "/images/projects/autodesk-reseller-social/gallery-2.svg" },
+      { url: "/images/projects/autodesk-reseller-social/gallery-3.svg" },
+    ],
     updatedAt: "2026-08-15T00:00:00.000Z",
     en: {
       title: "Autodesk — Reseller Social Media",

@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <rect width="1600" height="900" fill="#3a1f3d" />
+  <g opacity="0.26" transform="rotate(0 200 150)"><g fill="none" stroke="#e8b64a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 186.56 50
+             L 186.56 94
+             L 158 130
+             L 158 250
+             L 242 250
+             L 242 130
+             L 213.44 94
+             L 213.44 50 Z" />
+    <line x1="158" y1="174" x2="242" y2="174" />
+  </g></g><g opacity="0.16" transform="rotate(4 600 150)"><g fill="none" stroke="#e8b64a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 586.56 50
+             L 586.56 94
+             L 558 130
+             L 558 250
+             L 642 250
+             L 642 130
+             L 613.44 94
+             L 613.44 50 Z" />
+    <line x1="558" y1="174" x2="642" y2="174" />
+  </g></g><g opacity="0.21000000000000002" transform="rotate(8 1000 150)"><g fill="none" stroke="#e8b64a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 986.56 50
+             L 986.56 94
+             L 958 130
+             L 958 250
+             L 1042 250
+             L 1042 130
+             L 1013.44 94
+             L 1013.44 50 Z" />
+    <line x1="958" y1="174" x2="1042" y2="174" />
+  </g></g><g opacity="0.26" transform="rotate(-8 1400 150)"><g fill="none" stroke="#e8b64a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 1386.56 50
+             L 1386.56 94
+             L 1358 130
+             L 1358 250
+             L 1442 250
+             L 1442 130
+             L 1413.44 94
+             L 1413.44 50 Z" />
+    <line x1="1358" y1="174" x2="1442" y2="174" />
+  </g></g><g opacity="0.16" transform="rotate(-4 200 450)"><g fill="none" stroke="#e8b64a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 186.56 350
+             L 186.56 394
+             L 158 430
+             L 158 550
+             L 242 550
+             L 242 430
+             L 213.44 394
+             L 213.44 350 Z" />
+    <line x1="158" y1="474" x2="242" y2="474" />
+  </g></g><g opacity="0.21000000000000002" transform="rotate(0 600 450)"><g fill="none" stroke="#e8b64a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 586.56 350
+             L 586.56 394
+             L 558 430
+             L 558 550
+             L 642 550
+             L 642 430
+             L 613.44 394
+             L 613.44 350 Z" />
+    <line x1="558" y1="474" x2="642" y2="474" />
+  </g></g><g opacity="0.26" transform="rotate(4 1000 450)"><g fill="none" stroke="#e8b64a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 986.56 350
+             L 986.56 394
+             L 958 430
+             L 958 550
+             L 1042 550
+             L 1042 430
+             L 1013.44 394
+             L 1013.44 350 Z" />
+    <line x1="958" y1="474" x2="1042" y2="474" />
+  </g></g><g opacity="0.16" transform="rotate(8 1400 450)"><g fill="none" stroke="#e8b64a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 1386.56 350
+             L 1386.56 394
+             L 1358 430
+             L 1358 550
+             L 1442 550
+             L 1442 430
+             L 1413.44 394
+             L 1413.44 350 Z" />
+    <line x1="1358" y1="474" x2="1442" y2="474" />
+  </g></g><g opacity="0.21000000000000002" transform="rotate(-8 200 750)"><g fill="none" stroke="#e8b64a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 186.56 650
+             L 186.56 694
+             L 158 730
+             L 158 850
+             L 242 850
+             L 242 730
+             L 213.44 694
+             L 213.44 650 Z" />
+    <line x1="158" y1="774" x2="242" y2="774" />
+  </g></g><g opacity="0.26" transform="rotate(-4 600 750)"><g fill="none" stroke="#e8b64a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 586.56 650
+             L 586.56 694
+             L 558 730
+             L 558 850
+             L 642 850
+             L 642 730
+             L 613.44 694
+             L 613.44 650 Z" />
+    <line x1="558" y1="774" x2="642" y2="774" />
+  </g></g><g opacity="0.16" transform="rotate(0 1000 750)"><g fill="none" stroke="#e8b64a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 986.56 650
+             L 986.56 694
+             L 958 730
+             L 958 850
+             L 1042 850
+             L 1042 730
+             L 1013.44 694
+             L 1013.44 650 Z" />
+    <line x1="958" y1="774" x2="1042" y2="774" />
+  </g></g><g opacity="0.21000000000000002" transform="rotate(4 1400 750)"><g fill="none" stroke="#e8b64a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 1386.56 650
+             L 1386.56 694
+             L 1358 730
+             L 1358 850
+             L 1442 850
+             L 1442 730
+             L 1413.44 694
+             L 1413.44 650 Z" />
+    <line x1="1358" y1="774" x2="1442" y2="774" />
+  </g></g>
+</svg>

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <rect width="1600" height="900" fill="#2a2f36" />
+  <g opacity="0.16" transform="rotate(4 200 150)"><g stroke="#6fe0d0" stroke-width="4" stroke-linejoin="round">
+    <polygon points="200,78 262.64,114 200,150 137.36,114" fill="#6fe0d0" opacity="0.85" />
+    <polygon points="137.36,114 200,150 200,222 137.36,186" fill="#6fe0d0" opacity="0.55" />
+    <polygon points="262.64,114 200,150 200,222 262.64,186" fill="#6fe0d0" opacity="0.7" />
+  </g></g><g opacity="0.21000000000000002" transform="rotate(8 600 150)"><g stroke="#6fe0d0" stroke-width="4" stroke-linejoin="round">
+    <polygon points="600,78 662.64,114 600,150 537.36,114" fill="#6fe0d0" opacity="0.85" />
+    <polygon points="537.36,114 600,150 600,222 537.36,186" fill="#6fe0d0" opacity="0.55" />
+    <polygon points="662.64,114 600,150 600,222 662.64,186" fill="#6fe0d0" opacity="0.7" />
+  </g></g><g opacity="0.26" transform="rotate(-8 1000 150)"><g stroke="#6fe0d0" stroke-width="4" stroke-linejoin="round">
+    <polygon points="1000,78 1062.64,114 1000,150 937.36,114" fill="#6fe0d0" opacity="0.85" />
+    <polygon points="937.36,114 1000,150 1000,222 937.36,186" fill="#6fe0d0" opacity="0.55" />
+    <polygon points="1062.64,114 1000,150 1000,222 1062.64,186" fill="#6fe0d0" opacity="0.7" />
+  </g></g><g opacity="0.16" transform="rotate(-4 1400 150)"><g stroke="#6fe0d0" stroke-width="4" stroke-linejoin="round">
+    <polygon points="1400,78 1462.64,114 1400,150 1337.36,114" fill="#6fe0d0" opacity="0.85" />
+    <polygon points="1337.36,114 1400,150 1400,222 1337.36,186" fill="#6fe0d0" opacity="0.55" />
+    <polygon points="1462.64,114 1400,150 1400,222 1462.64,186" fill="#6fe0d0" opacity="0.7" />
+  </g></g><g opacity="0.21000000000000002" transform="rotate(0 200 450)"><g stroke="#6fe0d0" stroke-width="4" stroke-linejoin="round">
+    <polygon points="200,378 262.64,414 200,450 137.36,414" fill="#6fe0d0" opacity="0.85" />
+    <polygon points="137.36,414 200,450 200,522 137.36,486" fill="#6fe0d0" opacity="0.55" />
+    <polygon points="262.64,414 200,450 200,522 262.64,486" fill="#6fe0d0" opacity="0.7" />
+  </g></g><g opacity="0.26" transform="rotate(4 600 450)"><g stroke="#6fe0d0" stroke-width="4" stroke-linejoin="round">
+    <polygon points="600,378 662.64,414 600,450 537.36,414" fill="#6fe0d0" opacity="0.85" />
+    <polygon points="537.36,414 600,450 600,522 537.36,486" fill="#6fe0d0" opacity="0.55" />
+    <polygon points="662.64,414 600,450 600,522 662.64,486" fill="#6fe0d0" opacity="0.7" />
+  </g></g><g opacity="0.16" transform="rotate(8 1000 450)"><g stroke="#6fe0d0" stroke-width="4" stroke-linejoin="round">
+    <polygon points="1000,378 1062.64,414 1000,450 937.36,414" fill="#6fe0d0" opacity="0.85" />
+    <polygon points="937.36,414 1000,450 1000,522 937.36,486" fill="#6fe0d0" opacity="0.55" />
+    <polygon points="1062.64,414 1000,450 1000,522 1062.64,486" fill="#6fe0d0" opacity="0.7" />
+  </g></g><g opacity="0.21000000000000002" transform="rotate(-8 1400 450)"><g stroke="#6fe0d0" stroke-width="4" stroke-linejoin="round">
+    <polygon points="1400,378 1462.64,414 1400,450 1337.36,414" fill="#6fe0d0" opacity="0.85" />
+    <polygon points="1337.36,414 1400,450 1400,522 1337.36,486" fill="#6fe0d0" opacity="0.55" />
+    <polygon points="1462.64,414 1400,450 1400,522 1462.64,486" fill="#6fe0d0" opacity="0.7" />
+  </g></g><g opacity="0.26" transform="rotate(-4 200 750)"><g stroke="#6fe0d0" stroke-width="4" stroke-linejoin="round">
+    <polygon points="200,678 262.64,714 200,750 137.36,714" fill="#6fe0d0" opacity="0.85" />
+    <polygon points="137.36,714 200,750 200,822 137.36,786" fill="#6fe0d0" opacity="0.55" />
+    <polygon points="262.64,714 200,750 200,822 262.64,786" fill="#6fe0d0" opacity="0.7" />
+  </g></g><g opacity="0.16" transform="rotate(0 600 750)"><g stroke="#6fe0d0" stroke-width="4" stroke-linejoin="round">
+    <polygon points="600,678 662.64,714 600,750 537.36,714" fill="#6fe0d0" opacity="0.85" />
+    <polygon points="537.36,714 600,750 600,822 537.36,786" fill="#6fe0d0" opacity="0.55" />
+    <polygon points="662.64,714 600,750 600,822 662.64,786" fill="#6fe0d0" opacity="0.7" />
+  </g></g><g opacity="0.21000000000000002" transform="rotate(4 1000 750)"><g stroke="#6fe0d0" stroke-width="4" stroke-linejoin="round">
+    <polygon points="1000,678 1062.64,714 1000,750 937.36,714" fill="#6fe0d0" opacity="0.85" />
+    <polygon points="937.36,714 1000,750 1000,822 937.36,786" fill="#6fe0d0" opacity="0.55" />
+    <polygon points="1062.64,714 1000,750 1000,822 1062.64,786" fill="#6fe0d0" opacity="0.7" />
+  </g></g><g opacity="0.26" transform="rotate(8 1400 750)"><g stroke="#6fe0d0" stroke-width="4" stroke-linejoin="round">
+    <polygon points="1400,678 1462.64,714 1400,750 1337.36,714" fill="#6fe0d0" opacity="0.85" />
+    <polygon points="1337.36,714 1400,750 1400,822 1337.36,786" fill="#6fe0d0" opacity="0.55" />
+    <polygon points="1462.64,714 1400,750 1400,822 1462.64,786" fill="#6fe0d0" opacity="0.7" />
+  </g></g>
+</svg>
