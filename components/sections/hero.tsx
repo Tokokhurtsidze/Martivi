@@ -118,18 +118,18 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.65 }}
-            className="mt-6 flex flex-wrap items-center gap-4"
+            className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4"
           >
             <a
               href="#contact"
-              className="group inline-flex h-12 items-center gap-2 bg-accent px-6 text-sm font-semibold text-accent-foreground transition-transform hover:scale-[1.03]"
+              className="group inline-flex h-12 w-full items-center justify-center gap-2 bg-accent px-6 text-sm font-semibold text-accent-foreground transition-transform hover:scale-[1.03] sm:w-auto sm:justify-start"
             >
               {t.hero.primaryCta}
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
             <a
               href="#consulting"
-              className="inline-flex h-12 items-center gap-2 border border-ink-foreground/25 px-6 text-sm font-semibold text-ink-foreground transition-colors hover:border-accent hover:text-accent"
+              className="inline-flex h-12 w-full items-center justify-center gap-2 border border-ink-foreground/25 px-6 text-sm font-semibold text-ink-foreground transition-colors hover:border-accent hover:text-accent sm:w-auto sm:justify-start"
             >
               {t.hero.secondaryCta}
               <ArrowDown className="h-4 w-4" />

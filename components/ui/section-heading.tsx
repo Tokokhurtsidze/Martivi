@@ -60,7 +60,7 @@ export function SectionHeading({
           className={cn(
             "relative text-balance font-display font-medium tracking-tight",
             compactMobile ? "text-2xl sm:text-5xl lg:text-6xl" : "text-4xl sm:text-5xl lg:text-6xl",
-            invert && "text-background",
+            invert && "text-ink-foreground",
           )}
         >
           {title}
@@ -71,7 +71,7 @@ export function SectionHeading({
           <p
             className={cn(
               "relative max-w-2xl text-balance text-base sm:text-lg",
-              invert ? "text-background/60" : "text-muted-foreground",
+              invert ? "text-ink-foreground/60" : "text-muted-foreground",
               align === "center" && "mx-auto",
               compactMobile && "hidden sm:block",
             )}
