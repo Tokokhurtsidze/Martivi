@@ -67,7 +67,6 @@ export interface Dictionary {
   about: {
     eyebrow: string;
     title: string;
-    name: string;
     paragraphs: string[];
     roles: { role: string; company: string }[];
   };

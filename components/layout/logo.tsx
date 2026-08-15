@@ -10,9 +10,9 @@ export function Logo({ className }: { className?: string }) {
     >
       <span className="relative flex h-6 w-9 items-center justify-center">
         <svg viewBox="0 0 48 32" fill="none" className="h-6 w-9">
-          <path d="M2 3L15 16L2 29V3Z" fill="currentColor" className="text-primary" />
-          <path d="M28 3L15 16L28 29V3Z" fill="currentColor" className="text-primary" />
-          <path d="M33 6L46 16L33 26V6Z" fill="currentColor" className="text-accent" />
+          <path d="M2 3L15 16L2 29V3Z" fill="currentColor" className="text-accent" />
+          <path d="M28 3L15 16L28 29V3Z" fill="currentColor" className="text-accent" />
+          <path d="M33 3L46 16L33 29V3Z" fill="currentColor" className="text-primary" />
         </svg>
       </span>
       <span>

@@ -128,8 +128,7 @@ const en: Dictionary = {
   },
   about: {
     eyebrow: "Who's Behind It",
-    title: "Lead Consultant & Founder",
-    name: "Giorgi Nozadze",
+    title: "Lead Consultant",
     paragraphs: [
       "Our vision is that great strategy and digital execution should be an accessible, affordable tool for every business — regardless of size or budget.",
       "Our philosophy is built on simplicity. Everybody can make things complicated — the real skill is making complex things as simple as possible.",
@@ -192,7 +191,7 @@ const en: Dictionary = {
   footer: {
     tagline: "Make Success Simple Again.",
     rights: "All Rights Reserved.",
-    owner: "Owned by Individual Entrepreneur Giorgi Nozadze",
+    owner: "Owned by an Individual Entrepreneur",
     linksTitle: "Explore",
     socialTitle: "Follow Us",
   },

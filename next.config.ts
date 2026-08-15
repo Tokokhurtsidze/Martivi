@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "*.public.blob.vercel-storage.com",
       },
+      {
+        protocol: "https",
+        hostname: "martiviconsulting.com",
+      },
     ],
     // Static cover/gallery SVGs in public/images/projects are authored by us
     // (no embedded scripts) — CSP still blocks scripts if that ever changes.
